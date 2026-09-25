@@ -1,16 +1,10 @@
 # Zendesk & LiveChat Collector
 
-When I'm reviewing support work, I often need to collect several tickets or chats before I can review them together.
+Often, I need to copy content from several tickets or chats. Copying and pasting everything one by one is tiring, so I made **Zendesk & LiveChat Collector**.
 
-Sometimes I need the whole conversation. Sometimes I only need one part of it.
+It lets me save a whole ticket or chat in one click, or just the text I select. I can keep collecting while I move between conversations, then copy everything together as clean Markdown when I'm ready for analysis.
 
-Doing that manually means selecting text, copying it somewhere else, cleaning it up, moving to the next ticket or chat, and repeating the same steps again.
-
-So I made **Zendesk & LiveChat Collector**.
-
-It lets me save a whole ticket or chat in one click, or just the text I select. I can keep collecting while I move between conversations, then copy everything together as clean Markdown when I'm ready to review it or give it to AI for analysis.
-
-It can also mask emails and phone numbers in the exported content. The masking is a convenience check, not a complete privacy filter, so the output should still be reviewed before sharing.
+It can also mask emails and phone numbers in the exported content.
 
 ![Zendesk & LiveChat Collector](./images/collector-panel.png)
 
@@ -20,48 +14,33 @@ It can also mask emails and phone numbers in the exported content. The masking i
 
 This is a Tampermonkey userscript.
 
-### 1. Install Tampermonkey
+**1.** Go to the [Tampermonkey Chrome Web Store page](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) and install the extension.
 
-Install **Tampermonkey** in your browser if you do not already have it.
+**2.** Click the Tampermonkey icon in your browser and select **Create a new script**.
 
-### 2. Add the script
+Then open [`conversation-collector.user.js`](./conversation-collector.user.js) from this repo. Copy the full script into the Tampermonkey editor and save it.
 
-Open Tampermonkey and create a new userscript.
+**3.** Open Zendesk or LiveChat, or refresh the page if it is already open. The **Conversation Collector** will appear at the bottom right of the page.
 
-Then open:
-
-`conversation-collector.user.js`
-
-Copy the full script into the Tampermonkey editor and save it.
-
-### 3. Open Zendesk or LiveChat
-
-Open a Zendesk ticket or LiveChat conversation.
-
-The **Conversation Collector** will appear on the page.
-
-### 4. Collect what you need
-
-To save the whole conversation, click:
-
-- **Save this ticket** in Zendesk
-- **Save this chat** in LiveChat
+**4.** Click **Save this ticket** in Zendesk or **Save this chat** in LiveChat.
 
 If you only need part of the conversation, select the text first and save the selected text instead.
 
 You can keep moving between tickets and chats and add more items to the same saved list.
 
-### 5. Copy or download everything together
-
-When you're ready, open the collector and:
+**5.** When you're ready, click:
 
 - **Copy all as Markdown**
-- Download a `.md` file
-- Download a `.json` file
+- **.md** to download a Markdown file
+- **.json** to download a JSON file
 
-If **Mask emails and phone numbers** is turned on, the script masks likely email addresses and phone numbers when you copy or download the content.
+## Privacy
 
-Always check the output before sharing it.
+The script runs in your browser. It does not send your tickets, chats, or saved content to me or anyone else.
+
+Your collected content is stored through Tampermonkey in your browser and is only exported when you choose to copy or download it.
+
+The optional masking feature can hide likely email addresses and phone numbers before export, but you should still review the content before sharing it.
 
 ## Keyboard Shortcuts
 
