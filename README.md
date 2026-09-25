@@ -1,98 +1,99 @@
 # Zendesk & LiveChat Collector
 
-A browser script for saving Zendesk tickets and LiveChat conversations as clean Markdown for QA reviews or AI analysis.
+When I'm reviewing support work, I often need to collect several tickets or chats before I can review them together.
 
-You can save the whole ticket or chat in one click, or select only the part you need. Saved items stay together while you move between pages, so you can collect several examples and copy or download them in one batch.
+Sometimes I need the whole conversation. Sometimes I only need one part of it.
 
-The script can also mask email addresses and phone numbers when you copy or download the collected content. The masking is basic, so the output should still be checked before sharing.
+Doing that manually means selecting text, copying it somewhere else, cleaning it up, moving to the next ticket or chat, and repeating the same steps again.
 
-## What It Does
+So I made **Zendesk & LiveChat Collector**.
 
-- Saves the full conversation from a Zendesk ticket or LiveChat chat
-- Saves only selected text when you do not need the whole conversation
-- Keeps multiple saved items together across pages and browser tabs
-- Copies the full batch as clean Markdown
-- Downloads the batch as Markdown or JSON
-- Optionally masks email addresses and phone numbers during copy and download
-- Keeps links and useful conversation structure where possible
+It lets me save a whole ticket or chat in one click, or just the text I select. I can keep collecting while I move between conversations, then copy everything together as clean Markdown when I'm ready to review it or give it to AI for analysis.
 
-## Why I Made It
+It can also mask emails and phone numbers in the exported content. The masking is a convenience check, not a complete privacy filter, so the output should still be reviewed before sharing.
 
-When I review support work, I often need only part of a ticket or chat, or several conversations together.
+![Zendesk & LiveChat Collector](./images/collector-panel.png)
 
-Doing that manually means selecting text, copying it somewhere else, cleaning it up, switching pages, and repeating the same steps again.
-
-I made this script so I can collect the material while I am reviewing it, then export everything together when I am ready.
-
-## Installation
-
-This is a Tampermonkey userscript.
-
-1. Install **Tampermonkey** in your browser.
-2. Open Tampermonkey and create a new userscript.
-3. Open `conversation-collector.user.js` in this repository.
-4. Copy the full script into the Tampermonkey editor.
-5. Save it.
-6. Open a Zendesk ticket or LiveChat conversation. The collector will appear on the page.
-
-The script currently runs on:
-
-- Zendesk Agent pages
-- LiveChat
-- LiveChat Inc
+---
 
 ## How to Use It
 
-### Save the whole ticket or chat
+This is a Tampermonkey userscript.
 
-Open a Zendesk ticket or LiveChat conversation and choose **Save this ticket** or **Save this chat**.
+### 1. Install Tampermonkey
 
-The current conversation is added to the saved list.
+Install **Tampermonkey** in your browser if you do not already have it.
 
-### Save only part of it
+### 2. Add the script
 
-Select the text you want on the page, then choose **Save only the selected text**.
+Open Tampermonkey and create a new userscript.
 
-Selected excerpts are stored separately, so they do not overwrite the full conversation from the same ticket or chat.
+Then open:
 
-### Export what you collected
+`conversation-collector.user.js`
 
-Open the collector panel when you are ready.
+Copy the full script into the Tampermonkey editor and save it.
 
-You can:
+### 3. Open Zendesk or LiveChat
 
-- Copy everything as Markdown
+Open a Zendesk ticket or LiveChat conversation.
+
+The **Conversation Collector** will appear on the page.
+
+### 4. Collect what you need
+
+To save the whole conversation, click:
+
+- **Save this ticket** in Zendesk
+- **Save this chat** in LiveChat
+
+If you only need part of the conversation, select the text first and save the selected text instead.
+
+You can keep moving between tickets and chats and add more items to the same saved list.
+
+### 5. Copy or download everything together
+
+When you're ready, open the collector and:
+
+- **Copy all as Markdown**
 - Download a `.md` file
 - Download a `.json` file
-- Clear saved items when you are finished
 
-## Privacy Masking
+If **Mask emails and phone numbers** is turned on, the script masks likely email addresses and phone numbers when you copy or download the content.
 
-**Mask emails and phone numbers** is enabled by default.
-
-When it is on, the script replaces email addresses and likely phone numbers in copied and downloaded output.
-
-This is a convenience check, not a complete privacy filter. Always review the exported content before sharing it with another person or an AI tool.
+Always check the output before sharing it.
 
 ## Keyboard Shortcuts
+
+You can also use:
 
 - **Alt + Shift + C** — save the current ticket or chat
 - **Alt + Shift + S** — save selected text
 
-On macOS, the script shows the equivalent Option + Shift shortcuts in the interface.
+On Mac, the interface shows the equivalent Option + Shift shortcuts.
 
-## Script
+## What It Works With
 
-The complete userscript is in:
+The script currently works with:
 
-`conversation-collector.user.js`
+- Zendesk Agent ticket pages
+- LiveChat
+- LiveChat Inc
 
-## Notes
+It reads the conversation already visible on the page and keeps the items you collect through Tampermonkey while you move between supported pages.
 
-This tool reads content that is already visible in the Zendesk or LiveChat page you have open. It stores collected items through Tampermonkey so they can stay available while you move between supported pages.
+Because Zendesk and LiveChat can change their page structure, the script may need to be updated if either interface changes.
 
-Zendesk and LiveChat can change their page structure over time, so selectors may need to be updated if either interface changes.
+## What's in This Repo
 
-## License
+```text
+support-ticket-chat-collector/
+├── conversation-collector.user.js
+├── images/
+│   └── collector-panel.png
+└── README.md
+```
 
-MIT License.
+`conversation-collector.user.js` is the complete userscript.
+
+`images/collector-panel.png` is the interface screenshot used in this README.
