@@ -10,6 +10,23 @@ It can also mask emails and phone numbers in the exported content.
 
 ---
 
+## What's New
+
+### v2.2.3
+- **Text.com interface support**: Full support for LiveChat's new **Text.com** platform (`app.text.com`), including updated chat feed DOM structure, bubble group parsing, and speaker detection.
+- **Accurate Chat ID & customer title detection**: Automatically extracts IDs from Text.com paths (`/chats/...`, `/archives/...`) and captures customer names in export titles.
+- **Backward compatibility**: Continues to support classic LiveChat and Zendesk layouts without disruption.
+
+### v2.2.2
+- **Redesigned 3-segment quick launcher**:
+  - **Left**: One-click save, or quick copy all Markdown if the current conversation is already collected.
+  - **Middle**: Counter badge with a safe two-step click-to-clear confirmation.
+  - **Right**: Expand arrow to open the full drawer and export panel.
+- **Daily auto-cleanup**: Automatically resets expired items from previous days when you start fresh, even if the browser tab stays open overnight.
+- **Draggable & position memory**: Drag the launcher anywhere on your screen and remember its position across page navigations.
+
+---
+
 ## How to Use It
 
 This is a Tampermonkey userscript.
@@ -20,9 +37,9 @@ This is a Tampermonkey userscript.
 
 Then open [`conversation-collector.user.js`](./conversation-collector.user.js) from this repo. Copy the full script into the Tampermonkey editor and save it.
 
-**3.** Open Zendesk or LiveChat, or refresh the page if it is already open. The **Conversation Collector** will appear at the bottom right of the page.
+**3.** Open Zendesk, LiveChat, or Text.com (`app.text.com`), or refresh the page if it is already open. The **Conversation Collector** launcher will appear on the page.
 
-**4.** Click **Save this ticket** in Zendesk or **Save this chat** in LiveChat.
+**4.** Click **Save this ticket** in Zendesk or **Save this chat** in LiveChat / Text.com.
 
 If you only need part of the conversation, select the text first and save the selected text instead.
 
@@ -56,12 +73,12 @@ On Mac, the interface shows the equivalent Option + Shift shortcuts.
 The script currently works with:
 
 - Zendesk Agent ticket pages
-- LiveChat
-- LiveChat Inc
+- Text.com (`app.text.com`)
+- LiveChat (`my.livechatinc.com`, `*.livechat.com`)
 
 It reads the conversation already visible on the page and keeps the items you collect through Tampermonkey while you move between supported pages.
 
-Because Zendesk and LiveChat can change their page structure, the script may need to be updated if either interface changes.
+Because Zendesk and LiveChat / Text.com can change their page structure, the script may need to be updated if either interface changes.
 
 ## What's in This Repo
 
